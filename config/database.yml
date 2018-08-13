@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  pool: 25
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: blog_development
+
+test:
+  <<: *default
+  database: blog_test
+
+production:
+  <<: *default
+  database: 
+  username: 
+  password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
